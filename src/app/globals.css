@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-size: 1rem;
+}
+input {
+  border: none;
+}
+
+:root {
+  --background: #ffffff;
+  --line: #f0f0f3;
+  --title: #111113;
+  --font: #60646c;
+  --logo: #fd8fff;
+  --hoverLogo: #fdf0fd;
+  --activeLogo: #fedefe;
+}
+
+[data-theme="dark"] {
+  --background: #111113;
+  --line: #272a2d;
+  --title: #ffffff;
+  --font: #afb4ba;
+}

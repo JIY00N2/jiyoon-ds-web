@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  border-right: 1px solid var(--line);
+  gap: 30px;
+  background-color: var(--background);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--title);
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 15px;
+  color: var(--font);
+}
+
+.link:hover {
+  background-color: var(--hoverLogo);
+}

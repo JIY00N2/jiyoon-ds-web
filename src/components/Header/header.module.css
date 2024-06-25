@@ -1,0 +1,24 @@
+.layout {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 40px;
+  border-bottom: 1.8px solid var(--line);
+  background-color: var(--background);
+  width: 100%;
+  position: fixed;
+}
+
+.homeLogo {
+  display: flex;
+  font-size: x-large;
+  font-weight: 600;
+  color: var(--logo);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
