@@ -47,3 +47,11 @@
 .link:hover {
   background-color: var(--hoverLogo);
 }
+
+.activeLink {
+  background-color: var(--activeLogo);
+}
+
+.activeLink:hover {
+  background-color: var(--activeLogo);
+}
