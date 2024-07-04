@@ -12,7 +12,12 @@ export const Header = () => {
         href={"/"}
         className={styles.homeLogo}
       >
-        JY DS
+        <Image
+          src="/images/web-logo.png"
+          alt="jy-ds-logo"
+          width={96}
+          height={24}
+        />
       </Link>
       <section className={styles.navbar}>
         <Link
