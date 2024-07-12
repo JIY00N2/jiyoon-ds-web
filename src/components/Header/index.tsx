@@ -3,10 +3,9 @@
 import Link from "next/link";
 import GithubSvg from "@/public/images/github.svg";
 import DarkMode from "@/public/images/dark-mode.svg";
+import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 // TODO - dark mode
@@ -34,9 +33,7 @@ export const Header = () => {
         href={"/"}
         className={styles.homeLogo}
       >
-        <Image
-          src="/images/web-logo.png"
-          alt="jy-ds-logo"
+        <WebLogoSvg
           width={96}
           height={24}
         />
