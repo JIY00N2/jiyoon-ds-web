@@ -24,6 +24,8 @@ input {
   --logo: #fd8fff;
   --hoverLogo: #fdf0fd;
   --activeLogo: #fedefe;
+  --homeStartedButton: #2c3034;
+  --homeStartedFont: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -31,4 +33,6 @@ input {
   --line: #272a2d;
   --title: #ffffff;
   --font: #afb4ba;
+  --homeStartedButton: #ffffff;
+  --homeStartedFont: #242426;
 }

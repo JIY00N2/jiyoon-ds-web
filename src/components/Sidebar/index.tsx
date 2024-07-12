@@ -2,12 +2,12 @@ import { Components } from "./Components";
 import { Overview } from "./Overview";
 import styles from "./sidebar.module.css";
 
-export const Sidebar = () => {
+export const Sidebar = ({ lng }: { lng: string }) => {
   return (
     <aside className={styles.layout}>
       <div className={styles.container}>
-        <Overview />
-        <Components />
+        <Overview lng={lng} />
+        <Components lng={lng} />
       </div>
     </aside>
   );

@@ -1,0 +1,31 @@
+.body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 60px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  display: flex;
+  width: 250px;
+  height: 50px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--homeStartedButton);
+  color: var(--homeStartedFont);
+  font-size: 18px;
+}
