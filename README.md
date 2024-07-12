@@ -1,4 +1,4 @@
-[![JY DS logo](public/images/web-logo.svg)](https://jiyoon-ds-web.vercel.app/)
+[![JY DS logo](public/images/web-logo.png)](https://jiyoon-ds-web.vercel.app/)
 
 # JY DS website and documentation
 
