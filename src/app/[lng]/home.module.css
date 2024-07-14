@@ -1,6 +1,7 @@
 .body {
   height: 100vh;
   width: 100vw;
+  background-color: var(--background);
 }
 
 .main {
@@ -35,6 +36,7 @@
   white-space: pre-line;
   font-size: 18px;
   font-weight: 500;
+  color: var(--font);
 }
 
 .link {

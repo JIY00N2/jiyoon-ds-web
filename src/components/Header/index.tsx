@@ -43,14 +43,24 @@ export const Header = () => {
         />
       </Link>
       <section className={styles.navbar}>
-        <button onClick={handleClickKorean}>한국어</button>
-        <button onClick={handleClickEnglish}>영어</button>
+        <button
+          onClick={handleClickKorean}
+          style={{ color: "var(--title)" }}
+        >
+          한국어
+        </button>
+        <button
+          onClick={handleClickEnglish}
+          style={{ color: "var(--title)" }}
+        >
+          영어
+        </button>
         <Link
           href="https://github.com/JIY00N2/jiyoon-ds"
           aria-label="github"
         >
           <GithubSvg
-            color="black"
+            color="var(--title)"
             width={24}
             height={22}
           />
@@ -58,13 +68,13 @@ export const Header = () => {
         <button onClick={handleClickDarkMode}>
           {isDarkMode ? (
             <LightMode
-              color="white"
+              color="var(--title)"
               width={24}
               height={22}
             />
           ) : (
             <DarkMode
-              color="black"
+              color="var(--title)"
               width={24}
               height={22}
             />
