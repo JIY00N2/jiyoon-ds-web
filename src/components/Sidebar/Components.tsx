@@ -9,11 +9,10 @@ export const Components = async ({ lng }: { lng: string }) => {
     <section className={styles.section}>
       <h4 className={styles.h4}>{t("COMPONENTS_TITLE")}</h4>
       <div className={styles.linkContainer}>
-        <SidebarLink href={"/docs/components/modal"}>
+        <SidebarLink href={"/components/modal"}>
           {t("COMPONENTS_MODAL")}
         </SidebarLink>
-        <SidebarLink href={"/docs/components/tooltip"}>
-          {" "}
+        <SidebarLink href={"/components/tooltip"}>
           {t("COMPONENTS_TOOLTIP")}
         </SidebarLink>
       </div>

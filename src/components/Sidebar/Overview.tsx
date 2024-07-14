@@ -9,10 +9,10 @@ export const Overview = async ({ lng }: { lng: string }) => {
     <section className={styles.section}>
       <h4 className={styles.h4}>{t("OVERVIEW_TITLE")}</h4>
       <div className={styles.linkContainer}>
-        <SidebarLink href={"/docs/overview/introduction"}>
+        <SidebarLink href={"/overview/introduction"}>
           {t("OVERVIEW_INTRODUCTION")}
         </SidebarLink>
-        <SidebarLink href={"/docs/overview/getting-started"}>
+        <SidebarLink href={"/overview/getting-started"}>
           {t("OVERVIEW_GETTING_STARTED")}
         </SidebarLink>
       </div>
