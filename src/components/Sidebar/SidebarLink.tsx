@@ -6,7 +6,7 @@ import { PropsWithChildren } from "react";
 import { usePathname } from "next/navigation";
 
 const getClassName = (href: string, pathname: string) => {
-  if (pathname === href) {
+  if (pathname.includes(href)) {
     return `${styles.link} ${styles.activeLink}`;
   }
 
