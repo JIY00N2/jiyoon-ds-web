@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Header } from "../../components/Header";
 import styles from "./home.module.css";
 import { languages } from "../../i18n/settings";
+import { ThemeProvider } from "@/src/contexts/ThemeContext";
 import "../globals.css";
 import "../reset.css";
 
@@ -34,6 +35,11 @@ export async function generateStaticParams() {
 //   };
 // }
 
+const themeInitializerScript = `
+  const currTheme = localStorage.getItem("theme");
+  document.documentElement.setAttribute("data-theme", currTheme);
+`;
+
 export default function RootLayout({
   children,
   params: { lng },
@@ -42,10 +48,16 @@ export default function RootLayout({
   params: { lng: string };
 }) {
   return (
-    <html lang={lng}>
+    <html
+      lang={lng}
+      suppressHydrationWarning
+    >
       <body className={`${inter.className} ${styles.body}`}>
-        <Header />
-        <main className={styles.main}>{children}</main>
+        <script dangerouslySetInnerHTML={{ __html: themeInitializerScript }} />
+        <ThemeProvider>
+          <Header />
+          <main className={styles.main}>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

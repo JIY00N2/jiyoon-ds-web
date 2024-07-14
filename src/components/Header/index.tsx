@@ -2,11 +2,14 @@
 
 import Link from "next/link";
 import GithubSvg from "@/public/images/github.svg";
+import LightMode from "@/public/images/light-mode.svg";
 import DarkMode from "@/public/images/dark-mode.svg";
 import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useThemeContext } from "@/src/contexts/ThemeContext";
+import { useEffect } from "react";
 
 // TODO - dark mode
 
@@ -14,6 +17,7 @@ export const Header = () => {
   // TODO - 훅으로 빼고, 드롭다운으로 바꾸기
   const pathname = usePathname();
   const router = useRouter();
+  const { isDarkMode, handleClickDarkMode } = useThemeContext();
 
   const handleClickKorean = () => {
     const path = pathname.split("/").slice(2);
@@ -51,12 +55,21 @@ export const Header = () => {
             height={22}
           />
         </Link>
-
-        <DarkMode
-          color="black"
-          width={24}
-          height={22}
-        />
+        <button onClick={handleClickDarkMode}>
+          {isDarkMode ? (
+            <LightMode
+              color="white"
+              width={24}
+              height={22}
+            />
+          ) : (
+            <DarkMode
+              color="black"
+              width={24}
+              height={22}
+            />
+          )}
+        </button>
       </section>
     </header>
   );
