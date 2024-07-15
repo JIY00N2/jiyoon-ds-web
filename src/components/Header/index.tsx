@@ -8,6 +8,7 @@ import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
 import { useThemeContext } from "@/src/contexts/ThemeContext";
+import { useCookies } from "react-cookie";
 
 // TODO - dark mode
 
@@ -16,6 +17,16 @@ export const Header = () => {
   const pathname = usePathname();
   const { isDarkMode, handleClickDarkMode } = useThemeContext();
   const path = pathname.split("/").slice(2);
+  const [, setCookie] = useCookies(["i18next"]);
+
+  // 임시 쿠키 변경
+  const handleClickKorean = () => {
+    setCookie("i18next", "ko");
+  };
+
+  const handleClickEnglish = () => {
+    setCookie("i18next", "en");
+  };
 
   return (
     <header className={styles.layout}>
@@ -31,12 +42,14 @@ export const Header = () => {
       <section className={styles.navbar}>
         <Link
           href={`${["", "ko", ...path].join("/")}`}
+          onClick={handleClickKorean}
           style={{ color: "var(--title)" }}
         >
           한국어
         </Link>
         <Link
           href={`${["", "en", ...path].join("/")}`}
+          onClick={handleClickEnglish}
           style={{ color: "var(--title)" }}
         >
           영어
