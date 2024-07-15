@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import {
   PropsWithChildren,
   createContext,
@@ -19,6 +20,7 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 export const ThemeProvider = ({ children }: PropsWithChildren) => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -29,6 +31,14 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
       setIsDarkMode(theme === "dark");
     }
   }, []);
+
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    document.documentElement.setAttribute(
+      "data-theme",
+      theme === "dark" ? "dark" : "light",
+    );
+  }, [pathname]);
 
   const handleClickDarkMode = useCallback(() => {
     setIsDarkMode((isDark) => {

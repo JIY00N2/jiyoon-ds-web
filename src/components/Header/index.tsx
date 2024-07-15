@@ -7,29 +7,15 @@ import DarkMode from "@/public/images/dark-mode.svg";
 import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { useThemeContext } from "@/src/contexts/ThemeContext";
-import { useEffect } from "react";
 
 // TODO - dark mode
 
 export const Header = () => {
   // TODO - 훅으로 빼고, 드롭다운으로 바꾸기
   const pathname = usePathname();
-  const router = useRouter();
   const { isDarkMode, handleClickDarkMode } = useThemeContext();
-
-  const handleClickKorean = () => {
-    const path = pathname.split("/").slice(2);
-    const newPath = ["", "ko", ...path].join("/");
-    router.push(newPath);
-  };
-
-  const handleClickEnglish = () => {
-    const path = pathname.split("/").slice(2);
-    const newPath = ["", "en", ...path].join("/");
-    router.push(newPath);
-  };
+  const path = pathname.split("/").slice(2);
 
   return (
     <header className={styles.layout}>
@@ -43,18 +29,18 @@ export const Header = () => {
         />
       </Link>
       <section className={styles.navbar}>
-        <button
-          onClick={handleClickKorean}
+        <Link
+          href={`${["", "ko", ...path].join("/")}`}
           style={{ color: "var(--title)" }}
         >
           한국어
-        </button>
-        <button
-          onClick={handleClickEnglish}
+        </Link>
+        <Link
+          href={`${["", "en", ...path].join("/")}`}
           style={{ color: "var(--title)" }}
         >
           영어
-        </button>
+        </Link>
         <Link
           href="https://github.com/JIY00N2/jiyoon-ds"
           aria-label="github"
