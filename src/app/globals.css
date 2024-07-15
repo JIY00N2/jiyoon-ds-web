@@ -21,11 +21,15 @@ input {
   --line: #f0f0f3;
   --title: #111113;
   --font: #60646c;
+  --activeFont: #60646c;
+  --hoverFont: #60646c;
   --logo: #fd8fff;
   --hoverLogo: #fdf0fd;
   --activeLogo: #fedefe;
   --homeStartedButton: #2c3034;
   --homeStartedFont: #ffffff;
+  --black: #111113;
+  --white: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -33,6 +37,8 @@ input {
   --line: #272a2d;
   --title: #ffffff;
   --font: #afb4ba;
+  --activeFont: #111113;
+  --hoverFont: #111113;
   --homeStartedButton: #ffffff;
   --homeStartedFont: #242426;
 }

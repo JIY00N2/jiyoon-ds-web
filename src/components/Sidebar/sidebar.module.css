@@ -46,12 +46,15 @@
 
 .link:hover {
   background-color: var(--hoverLogo);
+  color: var(--hoverFont);
 }
 
 .activeLink {
   background-color: var(--activeLogo);
+  color: var(--activeFont);
 }
 
 .activeLink:hover {
   background-color: var(--activeLogo);
+  color: var(--hoverFont);
 }
