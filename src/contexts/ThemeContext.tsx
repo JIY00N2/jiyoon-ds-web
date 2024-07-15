@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from "react";
@@ -32,7 +33,7 @@ export const ThemeProvider = ({ children }: PropsWithChildren) => {
     }
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const theme = localStorage.getItem("theme");
     document.documentElement.setAttribute(
       "data-theme",
