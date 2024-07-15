@@ -8,24 +8,28 @@ import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
 import { useThemeContext } from "@/src/contexts/ThemeContext";
-import { useCookies } from "react-cookie";
+import { useRouter } from "next/navigation";
 
 // TODO - dark mode
 
 export const Header = () => {
   // TODO - 훅으로 빼고, 드롭다운으로 바꾸기
   const pathname = usePathname();
+  const router = useRouter();
   const { isDarkMode, handleClickDarkMode } = useThemeContext();
-  const path = pathname.split("/").slice(2);
-  const [, setCookie] = useCookies(["i18next"]);
 
-  // 임시 쿠키 변경
   const handleClickKorean = () => {
-    setCookie("i18next", "ko");
+    const path = pathname.split("/").slice(2);
+    const newPath = ["", "ko", ...path].join("/");
+    router.push(newPath);
+    router.refresh();
   };
 
   const handleClickEnglish = () => {
-    setCookie("i18next", "en");
+    const path = pathname.split("/").slice(2);
+    const newPath = ["", "en", ...path].join("/");
+    router.push(newPath);
+    router.refresh();
   };
 
   return (
@@ -40,20 +44,18 @@ export const Header = () => {
         />
       </Link>
       <section className={styles.navbar}>
-        <Link
-          href={`${["", "ko", ...path].join("/")}`}
+        <button
           onClick={handleClickKorean}
           style={{ color: "var(--title)" }}
         >
           한국어
-        </Link>
-        <Link
-          href={`${["", "en", ...path].join("/")}`}
+        </button>
+        <button
           onClick={handleClickEnglish}
           style={{ color: "var(--title)" }}
         >
           영어
-        </Link>
+        </button>
         <Link
           href="https://github.com/JIY00N2/jiyoon-ds"
           aria-label="github"
