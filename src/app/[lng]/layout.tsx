@@ -55,7 +55,7 @@ export default function RootLayout({
       <body className={`${inter.className} ${styles.body}`}>
         <script dangerouslySetInnerHTML={{ __html: themeInitializerScript }} />
         <ThemeProvider>
-          <Header />
+          <Header lng={lng} />
           <main className={styles.main}>{children}</main>
         </ThemeProvider>
       </body>

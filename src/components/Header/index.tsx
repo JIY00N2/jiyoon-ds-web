@@ -9,14 +9,16 @@ import styles from "./header.module.css";
 import { usePathname } from "next/navigation";
 import { useThemeContext } from "@/src/contexts/ThemeContext";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/src/i18n/client";
 
 // TODO - dark mode
 
-export const Header = () => {
+export const Header = ({ lng }: { lng: string }) => {
   // TODO - 훅으로 빼고, 드롭다운으로 바꾸기
   const pathname = usePathname();
   const router = useRouter();
   const { isDarkMode, handleClickDarkMode } = useThemeContext();
+  const { t } = useTranslation(lng, "header");
 
   const handleClickKorean = () => {
     const path = pathname.split("/").slice(2);
@@ -48,13 +50,13 @@ export const Header = () => {
           onClick={handleClickKorean}
           style={{ color: "var(--title)" }}
         >
-          한국어
+          {t("LANGUAGE_KOREAN")}
         </button>
         <button
           onClick={handleClickEnglish}
           style={{ color: "var(--title)" }}
         >
-          영어
+          {t("LANGUAGE_ENGLISH")}
         </button>
         <Link
           href="https://github.com/JIY00N2/jiyoon-ds"
