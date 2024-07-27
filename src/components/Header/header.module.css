@@ -5,7 +5,6 @@
   align-items: center;
   padding-inline: 40px;
   border-bottom: 1.8px solid var(--line);
-  /* background-color: var(--background); */
   width: 100%;
   position: fixed;
 }
@@ -20,5 +19,13 @@
 .navbar {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
+}
+
+.dropdownContent {
+  gap: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: var(--homeStartedButton);
+  top: 50px !important;
 }

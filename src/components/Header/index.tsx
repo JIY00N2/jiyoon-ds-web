@@ -6,33 +6,11 @@ import LightMode from "@/public/images/light-mode.svg";
 import DarkMode from "@/public/images/dark-mode.svg";
 import WebLogoSvg from "@/public/images/web-logo.svg";
 import styles from "./header.module.css";
-import { usePathname } from "next/navigation";
 import { useThemeContext } from "@/src/contexts/ThemeContext";
-import { useRouter } from "next/navigation";
-import { useTranslation } from "@/src/i18n/client";
-
-// TODO - dark mode
+import { TranslateDropdownMenu } from "@/src/components/Header/TranslateDropdownMenu";
 
 export const Header = ({ lng }: { lng: string }) => {
-  // TODO - 훅으로 빼고, 드롭다운으로 바꾸기
-  const pathname = usePathname();
-  const router = useRouter();
   const { isDarkMode, handleClickDarkMode } = useThemeContext();
-  const { t } = useTranslation(lng, "header");
-
-  const handleClickKorean = () => {
-    const path = pathname.split("/").slice(2);
-    const newPath = ["", "ko", ...path].join("/");
-    router.push(newPath);
-    router.refresh();
-  };
-
-  const handleClickEnglish = () => {
-    const path = pathname.split("/").slice(2);
-    const newPath = ["", "en", ...path].join("/");
-    router.push(newPath);
-    router.refresh();
-  };
 
   return (
     <header className={styles.layout}>
@@ -46,25 +24,14 @@ export const Header = ({ lng }: { lng: string }) => {
         />
       </Link>
       <section className={styles.navbar}>
-        <button
-          onClick={handleClickKorean}
-          style={{ color: "var(--title)" }}
-        >
-          {t("LANGUAGE_KOREAN")}
-        </button>
-        <button
-          onClick={handleClickEnglish}
-          style={{ color: "var(--title)" }}
-        >
-          {t("LANGUAGE_ENGLISH")}
-        </button>
+        <TranslateDropdownMenu lng={lng} />
         <Link
           href="https://github.com/JIY00N2/jiyoon-ds"
           aria-label="github"
         >
           <GithubSvg
             color="var(--title)"
-            width={24}
+            width={22}
             height={22}
           />
         </Link>
@@ -73,13 +40,13 @@ export const Header = ({ lng }: { lng: string }) => {
             <LightMode
               color="var(--title)"
               width={24}
-              height={22}
+              height={24}
             />
           ) : (
             <DarkMode
               color="var(--title)"
               width={24}
-              height={22}
+              height={24}
             />
           )}
         </button>
